@@ -15,70 +15,35 @@ function activateElements() {
 }
 
 function nextImage() {
+    deactivateElements();
     if (activeImage < imagesArr.length - 1) {
-        deactivateElements();
         activeImage = activeImage + 1;
-        activateElements();
     } else {
-        deactivateElements();
         activeImage = 0;
-        activateElements();
     }
+    activateElements();
 }
 
 function prevImage() {
+    deactivateElements();
     if (activeImage > 0) {
-        deactivateElements();
         activeImage = activeImage - 1;
-        activateElements();
     } else {
-        deactivateElements();
         activeImage = imagesArr.length - 1;
-        activateElements();
     }
+    activateElements();
 }
 
 arrowNext[0].onclick = nextImage;
 arrowPrev[0].onclick = prevImage;
 
-//понимаю что код ниже нужно оптимизировать, но не пойму как
-
-function dotAction0 () {
+function dotAction () {
     deactivateElements();
-    activeImage = 0;
+    activeImage = dotsArr.indexOf(this);
     activateElements();
 }
 
-dotsArr[0].onclick = dotAction0;
-
-function dotAction1 () {
-    deactivateElements();
-    activeImage = 1;
-    activateElements();
+for (const dots of dotsArr) {
+    dots.onclick = dotAction;
 }
 
-dotsArr[1].onclick = dotAction1;
-
-function dotAction2 () {
-    deactivateElements();
-    activeImage = 2;
-    activateElements();
-}
-
-dotsArr[2].onclick = dotAction2;
-
-function dotAction3 () {
-    deactivateElements();
-    activeImage = 3;
-    activateElements();
-}
-
-dotsArr[3].onclick = dotAction3;
-
-function dotAction4 () {
-    deactivateElements();
-    activeImage = 4;
-    activateElements();
-}
-
-dotsArr[4].onclick = dotAction4;
