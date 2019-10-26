@@ -17,17 +17,17 @@ class Game {
   }
 
   registerEvents() {
-    let symbol = this.currentSymbol;
-
     let inputedSymbol;
+    let current = this;
 
     function setEnteredSymbol() {
-      inputedSymbol = KeyboardEvent.char;
+      let symbol = current.currentSymbol.textContent.toUpperCase();
+      inputedSymbol = String.fromCharCode(event.keyCode);
 
       if (symbol == inputedSymbol) {
-        this.success();
+        current.success();
       } else {
-        this.fail();
+        current.fail();
       }
     }
 
