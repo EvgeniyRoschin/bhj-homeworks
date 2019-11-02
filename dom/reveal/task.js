@@ -2,13 +2,14 @@ let revealBlocks = document.getElementsByClassName('reveal');
 
 function appearanceBlock() {
     let viewportHeight = window.innerHeight;
-    let blockTop = this.getBoundingClientRect().top;
 
-    if (blockTop < viewportHeight) {
-        this.classList.add('reveal_active');
+    for (const block of revealBlocks) {
+        let blockTop = block.getBoundingClientRect().top;
+
+        if (blockTop < viewportHeight) {
+            block.classList.add('reveal_active');
+        }
     }
 }
 
-for (const block of revealBlocks) {
-    block.addEventListener('scroll', appearanceBlock);
-}
+window.addEventListener('scroll', appearanceBlock);

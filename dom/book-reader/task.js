@@ -12,19 +12,19 @@ fontSizeButtons[0].addEventListener('click', function() {
     deActivateButtons();
     fontSizeButtons[0].classList.add('font-size_active');
     book.classList.add('book_fs-small');
-    return false;
+    event.preventDefault();
 });
 
 fontSizeButtons[1].addEventListener('click', function() {
     deActivateButtons();
     fontSizeButtons[1].classList.add('font-size_active');
     book.className = 'book';
-    return false;
+    event.preventDefault();
 });
 
 fontSizeButtons[2].addEventListener('click', function() {
     deActivateButtons();
     fontSizeButtons[2].classList.add('font-size_active');
     book.classList.add('book_fs-big');
-    return false;
+    event.preventDefault();
 });

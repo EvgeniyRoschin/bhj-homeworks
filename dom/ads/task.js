@@ -1,4 +1,5 @@
 let adsBlocks = Array.from(document.getElementsByClassName("rotator__case"));
+let interval = 500;
 
 function changeAds() {
     for (let i = 0; i < adsBlocks.length; i++) {
@@ -17,7 +18,7 @@ function changeAds() {
             break;
         }
     }
-    return interval;
+    setTimeout(changeAds, interval);
 }
 
-let changer = setInterval(changeAds, changeAds());
+changeAds();
