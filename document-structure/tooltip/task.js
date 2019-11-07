@@ -14,8 +14,8 @@ function showTooltip() {
 
     let coordinates = this.getBoundingClientRect();
     // не пойму почему значения style  не записываются в элемент div
-    tooltip.style.left = `${coordinates.x}`;
-    tooltip.style.top = `${coordinates.y}`;
+    tooltip.style.left = `${coordinates.x}px`;
+    tooltip.style.top = `${coordinates.y + 20}px`;
     console.log(tooltip);
     console.log(coordinates.x);
     console.log(coordinates.y);
