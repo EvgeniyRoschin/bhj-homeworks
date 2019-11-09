@@ -1,15 +1,18 @@
 let tasksList = document.getElementById("tasks__list");
 let tasksInput = document.getElementById("task__input");
 
-function addTask() {
+function addTask(event) {
     let taskHTML = document.createElement('div');
-    taskHTML.classList.add("task");
-    taskHTML.insertAdjacentHTML("afterBegin","<div class='task__title'></div><a href='#' class='task__remove'>&times;</a>");
+    
+    if (event.code == 'Enter') {
+        taskHTML.classList.add("task");
+        taskHTML.insertAdjacentHTML("afterBegin","<div class='task__title'></div><a href='#' class='task__remove'>&times;</a>");
 
-    tasksList.appendChild(taskHTML);
+        tasksList.appendChild(taskHTML);
 
-    let taskTitle = document.getElementsByClassName('task__title');
-    taskTitle[taskTitle.length - 1].textContent = tasksInput.value;
+        let taskTitle = document.getElementsByClassName('task__title');
+        taskTitle[taskTitle.length - 1].textContent = tasksInput.value;
+    }
 
     let taskRemove = document.getElementsByClassName('task__remove');
     taskRemove[taskRemove.length -1].addEventListener('click', removeTask);
@@ -21,4 +24,4 @@ function addTask() {
     tasksInput.value = '';
 }
 
-tasksInput.addEventListener('change', addTask);
+tasksInput.addEventListener('keydown', addTask);
