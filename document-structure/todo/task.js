@@ -12,16 +12,16 @@ function addTask(event) {
 
         let taskTitle = document.getElementsByClassName('task__title');
         taskTitle[taskTitle.length - 1].textContent = tasksInput.value;
+
+        let taskRemove = document.getElementsByClassName('task__remove');
+        taskRemove[taskRemove.length -1].addEventListener('click', removeTask);
+    
+        function removeTask() {
+            this.closest('.task').remove();
+        }
+
+        tasksInput.value = '';
     }
-
-    let taskRemove = document.getElementsByClassName('task__remove');
-    taskRemove[taskRemove.length -1].addEventListener('click', removeTask);
-
-    function removeTask() {
-        this.closest('.task').remove();
-    }
-
-    tasksInput.value = '';
 }
 
 tasksInput.addEventListener('keydown', addTask);
