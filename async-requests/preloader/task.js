@@ -12,11 +12,13 @@ xhr.onreadystatechange = function () {
         valute = xhr.response.response.Valute;
         console.log(valute);
         console.log(typeof(valute));    
+        console.log(valute.EUR.Value);    
+
     }
 
     loader.classList.toggle('loader_active');
 
-    for (let valuteItem of valute) {
+    for (let valuteItem in valute) {
         valuteContainer.insertAdjacentHTML("afterBegin",
         `<div class="item__code">${valuteItem.CharCode}</div>
         <div class="item__value">${valuteItem.Value}</div>
