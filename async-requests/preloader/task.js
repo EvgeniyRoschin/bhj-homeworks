@@ -20,8 +20,8 @@ xhr.onreadystatechange = function () {
 
     for (let valuteItem in valute) {
         valuteContainer.insertAdjacentHTML("afterBegin",
-        `<div class="item__code">${valuteItem.CharCode}</div>
-        <div class="item__value">${valuteItem.Value}</div>
+        `<div class="item__code">${valute[valuteItem].CharCode}</div>
+        <div class="item__value">${valute[valuteItem].Value}</div>
         <div class="item__currency">руб.</div>`);
     }
 }
